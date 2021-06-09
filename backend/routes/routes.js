@@ -5,7 +5,7 @@ import express from "express";
 import { showVozilo, showVoziloById, createVozilo, updateVozilo, deleteVozilo } from "../controllers/vozilo.js";
 import { showKlijent, showKlijentById, createKlijent, updateKlijent, deleteKlijent } from "../controllers/klijent.js";
 import { showProbnaVoznja, showProbnaVoznjaById, createProbnaVoznja, updateProbnaVoznja, deleteProbnaVoznja } from "../controllers/probnaVoznja.js";
-import { showUpit, showUpitById, createUpit, updateUpit, deleteUpit } from "../controllers/upit.js";
+import { showUpit, showUpitNovo, showUpitById, createUpit, updateUpit, deleteUpit } from "../controllers/upit.js";
 import { showUgovor, showUgovorById, createUgovor, updateUgovor, deleteUgovor } from "../controllers/ugovor.js";
  
 // init express router
@@ -34,6 +34,7 @@ router.delete('/ugovor/:id', deleteUgovor);
 
 //upit
 router.get('/upit', showUpit);
+router.get('/upitnovo', showUpitNovo);
 router.get('/upit/:id', showUpitById);
 router.post('/upit', createUpit);
 router.put('/upit/:id', updateUpit);

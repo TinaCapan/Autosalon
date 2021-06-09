@@ -3,7 +3,7 @@ import db from "../config/database.js";
  
 // Get All Products
 export const getUgovor = (result) => {
-    db.query("SELECT * FROM Ugovor", (err, results) => {             
+    db.query("SELECT Ugovor.ID_ugovora, Ugovor.Datum_ugovora, Klijent.Ime_prezime_klijenta, Vozilo.Marka_model_vozila FROM Ugovor left outer join Klijent on Klijent.ID_klijenta=Ugovor.ID_klijenta left outer join Vozilo on Vozilo.ID_vozila=Ugovor.ID_vozila", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -49,7 +49,7 @@ export const updateUgovorById = (data, id, result) => {
     });   
 }
  
-// Delete Product to Database
+
 export const deleteUgovorById = (id, result) => {
     db.query("DELETE FROM Ugovor WHERE ID_Ugovora = ?", [id], (err, results) => {             
         if(err) {

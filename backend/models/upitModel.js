@@ -3,7 +3,7 @@ import db from "../config/database.js";
  
 // Get All Products
 export const getUpit = (result) => {
-    db.query("SELECT * FROM Upit", (err, results) => {             
+    db.query("SELECT Upit.ID_upita, Vozilo.Marka_model_vozila, Upit.Ime_prezime, Upit.Kontakt, Upit.OIB FROM Upit left outer join Vozilo on Upit.ID_vozila=Vozilo.ID_vozila where Upit.ID_vozila!='';", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -12,7 +12,17 @@ export const getUpit = (result) => {
         }
     });   
 }
- 
+// novo vozilo
+export const getUpitNovo = (result) => {
+    db.query("SELECT ID_upita, NovoVozilo, Ime_prezime, Kontakt, OIB FROM Upit where NovoVozilo!='';", (err, results) => {             
+        if(err) {
+            console.log(err);
+            result(err, null);
+        } else {
+            result(null, results);
+        }
+    });   
+} 
 // Get Single Product
 export const getUpitById = (id, result) => {
     db.query("SELECT * FROM Upit WHERE ID_upita = ?", [id], (err, results) => {             

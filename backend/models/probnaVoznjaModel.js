@@ -60,3 +60,14 @@ export const deleteProbnaVoznjaById = (id, result) => {
         }
     });   
 }
+// dohvat termina iz baze
+export const getTermin = (date, result) => {
+    db.query("SELECT * FROM Termini WHERE Datum = ?", [date], (err, results) => {             
+        if(err) {
+            console.log(err);
+            result(err, null);
+        } else {
+            result(null, results[0]);
+        }
+    });   
+}

@@ -1,5 +1,5 @@
 // Import function from Product Model
-import { getUpit, getUpitById, insertUpit, updateUpitById, deleteUpitById } from "../models/upitModel.js";
+import { getUpit, getUpitNovo, getUpitById, insertUpit, updateUpitById, deleteUpitById } from "../models/upitModel.js";
  
 // Get All Products
 export const showUpit = (req, res) => {
@@ -11,7 +11,16 @@ export const showUpit = (req, res) => {
         }
     });
 }
- 
+ //novo vozilo
+ export const showUpitNovo = (req, res) => {
+    getUpitNovo((err, results) => {
+        if (err){
+            res.send(err);
+        }else{
+            res.json(results);
+        }
+    });
+}
 // Get Single Product 
 export const showUpitById = (req, res) => {
     getUpitById(req.params.id, (err, results) => {
