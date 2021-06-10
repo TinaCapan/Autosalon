@@ -3,7 +3,7 @@ import db from "../config/database.js";
  
 // Get All Products
 export const getVozilo = (result) => {
-    db.query("SELECT * FROM Vozilo", (err, results) => {             
+    db.query("SELECT * FROM Vozilo where Prodan=0", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
@@ -48,7 +48,18 @@ export const updateVoziloById = (data, id, result) => {
         }
     });   
 }
- 
+ //prodano
+ export const updateVoziloProdano = (id, result) => {
+    db.query("UPDATE Vozilo SET Prodan=1 WHERE ID_vozila = ?", [id], (err, results) => {             
+        if(err) {
+            console.log(err);
+            result(err, null);
+        } else {
+            result(null, results);
+        }
+    });   
+}
+ //
 // Delete Product to Database
 export const deleteVoziloById = (id, result) => {
     db.query("DELETE FROM Vozilo WHERE ID_vozila = ?", [id], (err, results) => {             

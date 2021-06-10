@@ -10,7 +10,6 @@
           <th>Ime klijenta</th>
           <th>Vozilo</th>
           <th>Datum_ugovora</th>
-          <th class="has-text-centered">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -19,18 +18,6 @@
           <td>{{ ugovor.Ime_prezime_klijenta }}</td>
           <td>{{ ugovor.Marka_model_vozila }}</td>
           <td>{{ ugovor.Datum_ugovora }}</td>
-          <td class="has-text-centered">
-            <router-link
-              :to="{ name: 'IzmjeniUgovor', params: { id: ugovor.ID_ugovora } }"
-              class="edit"
-              >Izmjeni</router-link
-            >
-            <a
-              class="edit"
-              @click="deleteUgovor(ugovor.ID_ugovora)"
-              >Delete</a
-            >
-          </td>
         </tr>
       </tbody>
     </table>

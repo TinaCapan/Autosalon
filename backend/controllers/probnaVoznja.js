@@ -1,5 +1,5 @@
 // Import function from Product Model
-import { getProbnaVoznja, getProbnaVoznjaById, insertProbnaVoznja, updateProbnaVoznjaById, deleteProbnaVoznjaById } from "../models/probnaVoznjaModel.js";
+import { getProbnaVoznja, getProbnaVoznjaById, insertProbnaVoznja, updateProbnaVoznjaById, deleteProbnaVoznjaById, getProvjeraTermina } from "../models/probnaVoznjaModel.js";
  
 // Get All Products
 export const showProbnaVoznja = (req, res) => {
@@ -11,7 +11,18 @@ export const showProbnaVoznja = (req, res) => {
         }
     });
 }
- 
+//termin
+export const showProvjeraTermina = (req, res) => {
+    const id = req.query.id;
+    const Termin = req.query.Termin;
+    getProvjeraTermina(id, Termin, (err, results) => {
+        if (err){
+            res.send(err);
+        }else{
+            res.json(results);
+        }
+    });
+}
 // Get Single Product 
 export const showProbnaVoznjaById = (req, res) => {
     getProbnaVoznjaById(req.params.id, (err, results) => {

@@ -12,7 +12,17 @@ export const getProbnaVoznja = (result) => {
         }
     });   
 }
- 
+// provjera termina
+export const getProvjeraTermina = (id,Termin,result) => {
+    db.query("SELECT * FROM Probna_voznja where ID_vozila=? and Termin=?",[id,Termin], (err, results) => {             
+        if(err) {
+            console.log(err);
+            result("nema",null);
+        } else {
+            result(null, results);
+        }
+    });   
+} 
 // Get Single Product
 export const getProbnaVoznjaById = (id, result) => {
     db.query("SELECT * FROM Probna_voznja WHERE ID_voznje = ?", [id], (err, results) => {             
@@ -57,17 +67,6 @@ export const deleteProbnaVoznjaById = (id, result) => {
             result(err, null);
         } else {
             result(null, results);
-        }
-    });   
-}
-// dohvat termina iz baze
-export const getTermin = (date, result) => {
-    db.query("SELECT * FROM Termini WHERE Datum = ?", [date], (err, results) => {             
-        if(err) {
-            console.log(err);
-            result(err, null);
-        } else {
-            result(null, results[0]);
         }
     });   
 }

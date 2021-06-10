@@ -18,8 +18,10 @@
       <div class="control">
         <input
           class="input"
-          type="time"
-          step="5"
+          min="2021-06-09"
+          max="2021-06-15"
+          step="7200"
+          type="datetime-local"
           placeholder="Termin"
           v-model="Termin"
         />
@@ -39,7 +41,7 @@
       </div>
  
     <div class="control">
-      <button class="unesi" @click="saveProbnaVoznja">Spremi</button>
+      <button class="unesi" @click="provjeriTermin">Spremi</button>
     </div>
   </div>
 </template>
@@ -52,10 +54,11 @@ export default {
   name: "AddProbnaVoznja",
   data() {
     return {
-      Termin: "",
+      Termin: "2021-06-10T00:00:00",
       ID_klijenta: "",
       ID_vozila: this.$route.params.id,
-      klijent:[]
+      klijent:[],
+      res:"",
     };
   },
   created(){
@@ -87,7 +90,24 @@ export default {
       } catch (err) {
         console.log(err);
       }
+    },
+    //termin
+    async provjeriTermin(){
+      try{
+        const res = await axios.get("http://localhost:8081/termin", {
+          params:{
+            Termin: this.Termin,
+            id: this.ID_vozila,
+          }
+      });
+      if(res!=null){
+      this.res=res.data[0].ID_voznje;
+      console.log(res.data[0]);
+        alert("Probna vožnja je već zakazana za taj datum. Molimo izaberite drugo vrijeme.");}
+    } catch (err){
+      this.saveProbnaVoznja();
     }
+  }
   },
 };
 </script>

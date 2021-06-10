@@ -2,9 +2,9 @@
 import express from "express";
  
 // import function from controller
-import { showVozilo, showVoziloById, createVozilo, updateVozilo, deleteVozilo } from "../controllers/vozilo.js";
+import { showVozilo, showVoziloById, createVozilo, updateVozilo, updateProdano,deleteVozilo } from "../controllers/vozilo.js";
 import { showKlijent, showKlijentById, createKlijent, updateKlijent, deleteKlijent } from "../controllers/klijent.js";
-import { showProbnaVoznja, showProbnaVoznjaById, createProbnaVoznja, updateProbnaVoznja, deleteProbnaVoznja } from "../controllers/probnaVoznja.js";
+import { showProbnaVoznja, showProvjeraTermina,showProbnaVoznjaById, createProbnaVoznja, updateProbnaVoznja, deleteProbnaVoznja } from "../controllers/probnaVoznja.js";
 import { showUpit, showUpitNovo, showUpitById, createUpit, updateUpit, deleteUpit } from "../controllers/upit.js";
 import { showUgovor, showUgovorById, createUgovor, updateUgovor, deleteUgovor } from "../controllers/ugovor.js";
  
@@ -16,6 +16,7 @@ router.get('/vozilo', showVozilo);
 router.get('/vozilo/:id', showVoziloById);
 router.post('/vozilo', createVozilo);
 router.put('/vozilo/:id', updateVozilo);
+router.put('/prodan/:id', updateProdano);
 router.delete('/vozilo/:id', deleteVozilo);
  
 //Klijent
@@ -42,6 +43,7 @@ router.delete('/upit/:id', deleteUpit);
 
 //probna
 router.get('/probnaVoznja', showProbnaVoznja);
+router.get('/termin', showProvjeraTermina);
 router.get('/probnaVoznja/:id', showProbnaVoznjaById);
 router.post('/probnaVoznja', createProbnaVoznja);
 router.put('/probnaVoznja/:id', updateProbnaVoznja);

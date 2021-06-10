@@ -1,5 +1,5 @@
 // Import function from Product Model
-import { getVozilo, getVoziloById, insertVozilo, updateVoziloById, deleteVoziloById } from "../models/voziloModel.js";
+import { getVozilo, getVoziloById, insertVozilo, updateVoziloById, updateVoziloProdano, deleteVoziloById } from "../models/voziloModel.js";
  
 // Get All Products
 export const showVozilo = (req, res) => {
@@ -47,7 +47,17 @@ export const updateVozilo = (req, res) => {
         }
     });
 }
- 
+ //updateVoziloProdano
+ export const updateProdano = (req, res) => {
+    const id = req.params.id;
+    updateVoziloProdano(id, (err, results) => {
+        if (err){
+            res.send(err);
+        }else{
+            res.json(results);
+        }
+    });
+}
 // Delete Product
 export const deleteVozilo = (req, res) => {
     const id = req.params.id;

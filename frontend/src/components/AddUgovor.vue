@@ -69,6 +69,7 @@ export default {
         ID_vozila:this.ID_vozila,
         Datum_ugovora: this.Datum_ugovora,
         });
+        this.setProdano();
         this.ID_klijenta = "";
         this.ID_vozila = "";
         this.Datum_ugovora = "";
@@ -78,6 +79,15 @@ export default {
         console.log(err);
       }
     },
+    async setProdano(){
+      try{
+        const id=this.ID_vozila;
+        console.log(id);
+        await axios.put(`http://localhost:8081/prodan/${id}`);
+      } catch(err){
+          console.log(err);
+        }
+      },
     async getKlijent() {
       try {
         const response = await axios.get("http://localhost:8081/klijent");
