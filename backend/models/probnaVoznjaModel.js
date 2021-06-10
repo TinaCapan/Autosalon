@@ -49,7 +49,7 @@ export const insertProbnaVoznja = (data, result) => {
  
 // Update Product to Database
 export const updateProbnaVoznjaById = (data, id, result) => {
-    db.query("UPDATE Probna_voznja SET Termin = ?, ID_vozila = ?, ID_klijenta = ?", [data.Termin, data.ID_vozila, data.ID_klijenta, id], (err, results) => {             
+    db.query("UPDATE Probna_voznja SET Termin = ?, ID_vozila = ?, ID_klijenta = ? where ID_voznje=?", [data.Termin, data.ID_vozila, data.ID_klijenta, id], (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);

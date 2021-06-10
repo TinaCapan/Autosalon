@@ -23,16 +23,7 @@
       </div>
 
     <div class="field">
-        <label class="label">Datum_ugovora</label>
-        <div class="control">
-          <input
-            class="input"
-            type="date"
-            placeholder="Datum ugovora"
-            v-model="Datum_ugovora"
-          />
-        </div>
-        <span>Odabrani datum: {{ Datum_ugovora }}</span>
+        <span>Datum: {{ Datum_ugovora }}</span>
       </div>
  
     <div class="control">
@@ -51,7 +42,7 @@ export default {
     return {
       ID_klijenta: "",
       ID_vozila: "",
-      Datum_ugovora: "",
+      Datum_ugovora: new Date().toISOString().substring(0,10),
       klijent:[],
       vozilo:[]
     };

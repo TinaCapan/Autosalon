@@ -17,15 +17,25 @@
       <label class="label">Odaberite željeni termin probne vožnje</label>
       <div class="control">
         <input
-          class="input"
-          min="2021-06-09"
-          max="2021-06-15"
-          step="7200"
-          type="datetime-local"
-          placeholder="Termin"
-          v-model="Termin"
+          id="date"
+          min="2021-06-10"
+          max="2021-06-30"
+          type="date"
+          placeholder="Datum"
+          v-model="Datum"
         />
       </div>
+      <select v-model="vrijemeSelect">
+        <option value="08:00">08:00</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+      </select>
+      <span>{{vrijemeSelect}}</span>
     </div>
 
     <div class="field">
@@ -36,7 +46,7 @@
               {{ klijent.Ime_prezime_klijenta }}
             </option>
           </select>
-          <span>Selected: {{ ID_klijenta }}</span>
+          <span>Selected: {{ ID_klijenta }} {{Termin}}</span>
         </div>
       </div>
  
@@ -54,19 +64,23 @@ export default {
   name: "AddProbnaVoznja",
   data() {
     return {
-      Termin: "2021-06-10T00:00:00",
+      Termin: "",
+      Datum:"",
       ID_klijenta: "",
       ID_vozila: this.$route.params.id,
+      vrijemeSelect:"",
       klijent:[],
       res:"",
+      today: new Date().toISOString().substring(0,19),
     };
   },
   created(){
-    this.getKlijent();
+    this.getKlijent()
   },
   methods: {
     // Create New product
     async saveProbnaVoznja() {
+      this.Termin=this.Datum + "T" + this.vrijemeSelect; 
       try {
         await axios.post("http://localhost:8081/probnaVoznja", {
         Termin:this.Termin,
@@ -93,6 +107,7 @@ export default {
     },
     //termin
     async provjeriTermin(){
+      this.Termin=this.Datum + "T" + this.vrijemeSelect; 
       try{
         const res = await axios.get("http://localhost:8081/termin", {
           params:{

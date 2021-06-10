@@ -25,7 +25,7 @@
     </div>
       
     <div class="control">
-        <button class="button is-success" @click="updateProbnaVoznja">Spremi</button>
+        <button class="button is-success" @click="provjeriTermin">Spremi</button>
     </div>
     </div>
 </template>
@@ -61,7 +61,23 @@ export default {
         console.log(err);
       }
     },
- 
+    //termin
+    async provjeriTermin(){
+        try{
+        const res = await axios.get("http://localhost:8081/termin", {
+          params:{
+            Termin: this.Termin,
+            id: this.ID_vozila,
+          }
+      });
+      if(res!=null){
+      this.res=res.data[0].ID_voznje;
+      console.log(res.data[0]);
+        alert("Probna vožnja je već zakazana za taj datum. Molimo izaberite drugo vrijeme.");}
+    } catch (err){
+      this.updateProbnaVoznja();
+    }
+  },
     // Update product
     async updateProbnaVoznja() {
       try {

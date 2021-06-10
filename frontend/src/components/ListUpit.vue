@@ -61,8 +61,7 @@
             <a
               class="button is-danger is-small"
               @click="deleteUpit(upitnovo.ID_upita)"
-              >Delete</a
-            >
+              >Delete</a>
           </td>
         </tr>
       </tbody>

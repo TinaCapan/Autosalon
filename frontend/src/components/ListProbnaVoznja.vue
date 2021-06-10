@@ -12,19 +12,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="probnaVoznja in probnaVoznja" :key="probnaVoznja.ID_probne_voznje">
+        <tr v-for="probnaVoznja in probnaVoznja" :key="probnaVoznja.ID_voznje">
           <td>{{ probnaVoznja.Termin }}</td>
           <td>{{ probnaVoznja.ID_vozila }}</td>
           <td>{{ probnaVoznja.ID_klijenta }}</td>
           <td class="has-text-centered">
             <router-link
-              :to="{ name: 'IzmjeniProbnuVoznju', params: { id: probnaVoznja.ID_probne_voznje } }"
+              :to="{ name: 'IzmjeniProbnuVoznju', params: { id: probnaVoznja.ID_voznje } }"
               class="button is-info is-small"
               >Izmjeni</router-link
             >
-            <a
-              class="edit"
-              @click="deleteProbnaVoznja(probnaVoznja.ID_probne_voznje)"
+            <a class="delete"
+              @click="deleteProbnaVoznja(probnaVoznja.ID_voznje)"
               >Delete</a
             >
           </td>
