@@ -17,7 +17,7 @@ export const getProvjeraTermina = (id,Termin,result) => {
     db.query("SELECT * FROM Probna_voznja where ID_vozila=? and Termin=?",[id,Termin], (err, results) => {             
         if(err) {
             console.log(err);
-            result("nema",null);
+            result("",null);
         } else {
             result(null, results);
         }
