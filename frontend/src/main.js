@@ -2,6 +2,10 @@ import { createWebHistory, createRouter } from 'vue-router'
 import { createApp } from 'vue'
 import App from './App.vue'
 
+import Register from '@/components/Register.vue'
+import Login from '@/components/Login.vue'
+import ForgetPassword from '@/components/ForgetPassword'
+
 import KreirajVozilo from './components/AddVozilo.vue'
 import IzmjeniVozilo from './components/EditVozilo.vue'
 import ListaVozila from './components/ListVozilo.vue'
@@ -11,6 +15,7 @@ import IzmjeniKlijenta from './components/EditKlijent.vue'
 import ListaKlijenata from './components/ListKlijent.vue'
 
 import KreirajUpit from './components/AddUpit.vue'
+import KreirajUpitNovo from './components/AddUpitNovo.vue'
 import IzmjeniUpit from './components/EditUpit.vue'
 import ListaUpita from './components/ListUpit.vue'
 
@@ -28,6 +33,25 @@ const routes = [
     name: 'KreirajVozilo',
     path: '/kreirajVozilo',
     component: KreirajVozilo
+  },
+  
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+    meta: {
+      authRequired: true
+    }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/forgetpassword',
+    name: 'ForgetPassword',
+    component: ForgetPassword
   },
   {
     name: 'IzmjeniVozilo',
@@ -63,6 +87,12 @@ const routes = [
     name: 'KreirajUpit',
     path: '/kreirajUpit',
     component: KreirajUpit
+  },
+  
+  {
+    name: 'KreirajUpitNovo',
+    path: '/kreirajUpitNovo',
+    component: KreirajUpitNovo
   },
   {
     name: 'IzmjeniUpit',

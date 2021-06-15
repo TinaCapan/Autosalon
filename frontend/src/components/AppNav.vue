@@ -50,33 +50,43 @@
         >
           Vozilas
         </router-link>
+        <router-link to="Login" v-if="!user" class="nav-item" active-class="active" exact>PRIJAVA</router-link>
+        <router-link to="Register" v-if="user" class="nav-item" active-class="active" exact>REGISTRACIJA</router-link>
+        <a v-if="user" @click="Logout" class="logout">ODJAVA</a>
+      
       </div>
   </nav>
 </template>
 
 <script>
-export default {}
+import firebase from 'firebase'
+export default {
+  name: 'AppNav',
+  data () {
+    return {
+      user: null
+    }
+  },
+methods: {
+  Logout () {
+    firebase.auth().signOut().then(() => {
+      alert('Uspješno ste se odjavili.')
+      this.$router.push('/')
+    })
+      .catch(error => {
+        alert(error.message)
+      })
+  }
+},
+created: function () {
+    var vm = this
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        vm.user = user
+      } else {
+        vm.user = null
+      }
+    })
+  }
+}
 </script>
-<style>
-  .navbar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 8vh;
-    background-color: #e0e8ff;
-  }
-  .logo{
-    width:60%;
-    align-items: center;
-  }
-  .nav{
-    width:40%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .nav-item{
-    color: black;
-  }
-</style>

@@ -17,7 +17,7 @@
           <td>{{ ugovor.ID_ugovora }}</td>
           <td>{{ ugovor.Ime_prezime_klijenta }}</td>
           <td>{{ ugovor.Marka_model_vozila }}</td>
-          <td>{{ ugovor.Datum_ugovora }}</td>
+          <td>{{ formatDate(ugovor.Datum_ugovora) }}</td>
         </tr>
       </tbody>
     </table>
@@ -50,7 +50,14 @@ export default {
         console.log(err);
       }
     },
- 
+
+    formatDate(d) {
+    var date = new Date(d);
+    var datestring = ("0" + date.getDate()).slice(-2) + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" +
+    date.getFullYear();
+    return datestring;
+    },
+
     // Delete Product
     async deleteUgovor(id) {
       try {

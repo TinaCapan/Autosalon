@@ -1,5 +1,5 @@
 <template>
-  <div><router-link :to="{ name: 'KreirajUpit' }">
+  <div><router-link :to="{ name: 'KreirajUpitNovo' }">
     <button class="add">Novi upit</button>
   </router-link
     ></div>
@@ -14,6 +14,11 @@
         <p>{{ vozilo.Broj_prijedenih_kilometara }}</p>
         <p class="price">{{ vozilo.Cijena_vozila }}</p>
         <div class="buttoni">
+          <router-link
+              :to="{ name: 'KreirajUpit', params: { id: vozilo.ID_vozila, naziv: vozilo.Marka_model_vozila } }"
+              class="button is-info is-small"
+              >Upit</router-link
+            >
             <router-link
                 :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }"
                 class="button is-info is-small"

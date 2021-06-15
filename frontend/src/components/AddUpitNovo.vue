@@ -1,6 +1,17 @@
 <template>
-  <div>
-  <h1>Upit za:{{this.$route.params.naziv}}</h1>
+  <div> 
+    <div class="field">
+      <label class="label">Novo vozilo</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Unesite podatke o traženom vozilu"
+          v-model="NovoVozilo"
+        />
+      </div>
+    </div>
+
 <div class="field">
         <label class="label">Ime i prezime</label>
         <div class="control">
@@ -51,7 +62,7 @@ export default {
   name: "AddUpit",
   data() {
     return {
-      ID_vozila: this.$route.params.id,
+      ID_vozila: null,
       NovoVozilo: "",
       Ime_prezime: "",
       Kontakt: "",

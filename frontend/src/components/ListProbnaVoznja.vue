@@ -6,16 +6,16 @@
       <thead>
         <tr>
           <th>Termin</th>
-          <th>ID_vozila</th>
-          <th>ID_klijenta</th>
+          <th>Klijent</th>
+          <th>Vozilo</th>
           <th>Mogućnosti</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="probnaVoznja in probnaVoznja" :key="probnaVoznja.ID_voznje">
-          <td>{{ probnaVoznja.Termin }}</td>
-          <td>{{ probnaVoznja.ID_vozila }}</td>
-          <td>{{ probnaVoznja.ID_klijenta }}</td>
+          <td>{{ formatDate(probnaVoznja.Termin) }}</td>
+          <td>{{ probnaVoznja.Ime_prezime_klijenta }}</td>
+          <td>{{ probnaVoznja.Marka_model_vozila }}</td>
           <td class="has-text-centered">
             <router-link
               :to="{ name: 'IzmjeniProbnuVoznju', params: { id: probnaVoznja.ID_voznje } }"
@@ -60,6 +60,13 @@ export default {
       }
     },
  
+    formatDate(d) {
+    var date = new Date(d);
+    var datestring = ("0" + date.getDate()).slice(-2) + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" +
+    date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
+    return datestring;
+    },
+
     // Delete Product
     async deleteProbnaVoznja(id) {
       try {

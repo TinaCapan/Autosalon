@@ -3,7 +3,7 @@ import db from "../config/database.js";
  
 // Get All Products
 export const getProbnaVoznja = (result) => {
-    db.query("SELECT * FROM Probna_voznja", (err, results) => {             
+    db.query("SELECT p.Termin, v.Marka_model_vozila, k.Ime_prezime_klijenta FROM Probna_voznja p left outer join Klijent k on k.ID_klijenta=p.ID_klijenta left outer join Vozilo v on v.ID_vozila=p.ID_vozila", (err, results) => {             
         if(err) {
             console.log(err);
             result(err, null);
