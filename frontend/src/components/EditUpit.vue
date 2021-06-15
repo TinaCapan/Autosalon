@@ -120,7 +120,7 @@ export default {
         this.Ime_prezime= "";
         this.Kontakt = "";
         this.OIB= "";
-        this.$router.push("/");
+        this.$router.push("/ListaUpita");
         } catch (err) {
         console.log(err);
       }

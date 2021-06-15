@@ -90,7 +90,7 @@ export default {
         this.Kontakt = "";
         this.Mail="";
         this.OIB="";
-        this.$router.push("/listaUpita");
+        this.$router.push("/CardVozila");
       } catch (err) {
         console.log(err);
       }

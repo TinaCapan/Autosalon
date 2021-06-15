@@ -1,9 +1,5 @@
 <template>
   <div class="postojece">
-    <router-link :to="{ name: 'KreirajUpit' }">
-    <button class="add">Novi upit</button>
-  </router-link
-    >
     <div>Upiti za postojeća vozila</div>
     <table class="tablica">
       <thead>
@@ -36,9 +32,6 @@
   </div>
   <!--novo vozilo-->
   <div class="novo">Upiti za nova vozila
-    <router-link :to="{ name: 'KreirajUpit' }">
-    <button class="add">Novi upit</button>
-    </router-link>
     <table class="tablica">
       <thead>
         <tr>

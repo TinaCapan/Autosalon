@@ -88,7 +88,7 @@ export default {
         this.ID_klijenta = "";
         this.ID_vozila = "";
         
-        this.$router.push("/");
+        this.$router.push("/ListaProbnaVoznja");
       } 
       catch (err) {
         console.log(err);
