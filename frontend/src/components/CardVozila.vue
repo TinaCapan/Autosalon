@@ -5,7 +5,7 @@
     ></div>
     <div class="main">
     <div class="card" v-for="vozilo in vozilo" :key="vozilo.ID_vozila">
-        <img :src="require('../assets/logo.png')" alt="Auto1" style="width:50px">
+      <img :src="vozilo.Slika" alt="Auto1" style="width:200px">
         <h1>{{ vozilo.Marka_model_vozila }}</h1>
         <p>{{ vozilo.Vrsta_motora }}</p>
         <p>{{ vozilo.Snaga_motora }}</p>

@@ -85,22 +85,25 @@
       </div>
 
       <div class="field">
-        <label class="label">Slika vozila</label>
-        <div class="control">
-          <input type="file" accept="image/*" @change="uploadImage($event)" id="file-input">
+        <div>
+          <p>Upload slike</p>
+          <input type="file" @change="previewImage" accept="image/*">
+          <p>Progress: {{uploadValue.toFixed()+"%"}}
+            <progress :value="uploadValue" max="100"></progress>
+        </p>
         </div>
       </div>
-      
+      <img class="preview" :src="picture">
     <div class="control">
-      <button class="unesi" @click="saveVozilo">Spremi</button>
+      <button class="unesi" @click="onUpload">Spremi</button>
     </div>
   </div>
 </template>
  
 <script>
-// import axios
 import axios from "axios";
- 
+import { storage } from '../firebase'
+
 export default {
   name: "AddVozilo",
   data() {
@@ -112,11 +115,33 @@ export default {
       Godina_proizvodnje: "",
       Broj_prijedenih_kilometara: "",
       Cijena_vozila: "",
-      Slika:""
+      ImageData: null,
+      picture: "",
+      uploadValue: 0
     };
   },
   methods: {
-    async saveVozilo() {
+    previewImage (event) {
+      this.uploadValue=0
+      this.picture = ""
+      this.ImageData = event.target.files[0]
+    },
+    onUpload () {
+      this.picture = null
+      const storageRef = storage.ref(`${this.ImageData.name}`).put(this.ImageData)
+      storageRef.on('state_changed', snapshot => {
+        this.uploadValue = (snapshot.bytesTransffered / snapshot.totalBytes) * 100
+      }, error => { console.log(error.message) },
+      () => {
+        this.uploadValue = 100
+        storageRef.snapshot.ref.getDownloadURL().then((url) => {
+          this.picture = url
+          this.saveVozilo(url);
+        })
+      }
+      )
+    },
+    async saveVozilo(url) {
       try {
         await axios.post("http://localhost:8081/vozilo", {
         Marka_model_vozila:this.Marka_model_vozila,
@@ -126,7 +151,7 @@ export default {
         Godina_proizvodnje: this.Godina_proizvodnje,
         Broj_prijedenih_kilometara: this.Broj_prijedenih_kilometara,
         Cijena_vozila: this.Cijena_vozila,
-        Slika: this.Slika
+        Slika: url
         });
         this.Marka_model_vozila = "";
         this.Vrsta_motora = "";
@@ -135,7 +160,7 @@ export default {
         this.Godina_proizvodnje = "";
         this.Broj_prijedenih_kilometara = "";
         this.Cijena_vozila = "";
-        this.Slika="";
+        this.picture=""
         this.$router.push("/");
       } catch (err) {
         console.log(err);
