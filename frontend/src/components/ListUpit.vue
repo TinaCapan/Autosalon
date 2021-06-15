@@ -1,7 +1,8 @@
 <template>
-  <div class="postojece">
-    <div>Upiti za postojeća vozila</div>
-    <table class="tablica">
+  <div class="row">
+      <div class="naslov">POPIS UPITA ZA VOZILA IZ PONUDE</div>
+      <div class="tdiv">
+      <table class="tablica">
       <thead>
         <tr>
           <th>ID_upita</th>
@@ -9,7 +10,7 @@
           <th>Ime i prezime</th>
           <th>Kontakt</th>
           <th>OIB</th>
-          <th class="has-text-centered">Mogućnosti</th>
+          <th class="has-text-centered">OPCIJE</th>
         </tr>
       </thead>
       <tbody>
@@ -23,15 +24,18 @@
             <a
               class="button is-danger is-small"
               @click="deleteUpit(upit.ID_upita)"
-              >Delete</a
+              >OBRIŠI</a
             >
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+  </div>
   <!--novo vozilo-->
-  <div class="novo">Upiti za nova vozila
+  <div class="row">
+    <div class="naslov">POPIS UPITA ZA NOVA VOZILA</div>
+    <div class="tdiv">
     <table class="tablica">
       <thead>
         <tr>
@@ -54,11 +58,12 @@
             <a
               class="button is-danger is-small"
               @click="deleteUpit(upitnovo.ID_upita)"
-              >Delete</a>
+              >OBRIŠI</a>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
   </div>
 </template>
  
@@ -113,37 +118,3 @@ export default {
 };
 </script>
  
-<style>
-  .tablica {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  background-color: #99d1d32c;
-  color: rgb(0, 0, 0);
-}
-
-.tablica td, .tablica th {
-  border: 1px solid rgb(0, 0, 0);
-  padding: 8px;
-}
-
-.tablica tr:nth-child(even){background-color: rgb(255, 255, 255);}
-
-.tablica tr:hover {background-color: #eca4a93a;}
-
-.tablica th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #183031;
-  color: white;
-}
-.add {
-  transition-duration: 0.4s;
-  font-size: 8px;
-  padding: 14px 40px;
-  border-radius: 4px;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  margin-top: 10px;
-  }
-</style>

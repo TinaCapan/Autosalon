@@ -1,7 +1,7 @@
 <template>
-  <div> 
+  <div class="card card-body">
+    <h1>UPIT ZA NOVO VOZILO</h1>
     <div class="field">
-      <label class="label">Novo vozilo</label>
       <div class="control">
         <input
           class="input"
@@ -13,7 +13,6 @@
     </div>
 
 <div class="field">
-        <label class="label">Ime i prezime</label>
         <div class="control">
           <input
             class="input"
@@ -25,7 +24,6 @@
       </div>
 
     <div class="field">
-        <label class="label">Kontakt</label>
         <div class="control">
           <input
             class="input"
@@ -37,7 +35,6 @@
       </div>
 
       <div class="field">
-        <label class="label">OIB</label>
         <div class="control">
           <input
             class="input"
@@ -107,42 +104,3 @@ export default {
 };
 </script>
  
-<style>
-  input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #dbe5eb;
-    border-radius: 4px;
-  }
-  input[type=text]:focus {
-    background-color: #dbe5eb;
-    opacity: 30%;
-  }
-  textarea {
-    width: 100%;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #183031;
-    border-radius: 4px;
-    background-color: #dbe5eb;
-    opacity:40%;
-    resize: none;
-  }
-  .unesi {
-    transition-duration: 0.4s;
-    font-size: 14px;
-    padding: 14px 40px;
-    border-radius: 4px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    margin-top: 10px;
-    }
-  
-  .unesi:hover {
-    background-color: #183031; /* Green */
-    color: #dbe5eb;
-  }
-  </style>
-  

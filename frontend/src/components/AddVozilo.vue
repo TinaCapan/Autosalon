@@ -1,94 +1,40 @@
 <template>
   <div>
+    <div class="card card-body">
+      <h1>UNOS VOZILA</h1>
     <div class="field">
-      <label class="label">Marka i model vozila</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          placeholder="Marka i model vozila"
-          v-model="Marka_model_vozila"
-        />
-      </div>
+        <input class="input" type="text" placeholder="Marka i model vozila" v-model="Marka_model_vozila"/>
     </div>
  
     <div class="field">
-      <label class="label">Vrsta motora</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          placeholder="Vrsta motora"
-          v-model="Vrsta_motora"
-        />
-      </div>
+        <input class="input" type="text" placeholder="Vrsta motora" v-model="Vrsta_motora"/>
     </div>
 
     <div class="field">
-        <label class="label">Snaga motora</label>
-        <div class="control">
-          <input
-            class="input"
-            type="text"
-            placeholder="Snaga motora"
-            v-model="Snaga_motora"
-          />
-        </div>
+        <input class="input" type="text" placeholder="Snaga motora" v-model="Snaga_motora"/>
       </div>
 
       <div class="field">
-        <label class="label">Radni obujam</label>
-        <div class="control">
-          <input
-            class="input"
-            type="text"
-            placeholder="Radni obujam"
-            v-model="Radni_obujam"
-          />
-        </div>
+        <input class="input" type="text" placeholder="Radni obujam" v-model="Radni_obujam"/>
       </div>
 
       <div class="field">
-        <label class="label">Godina proizvodnje</label>
-        <div class="control">
-          <input
-            class="input"
-            type="text"
-            placeholder="Godina proizvodnje"
-            v-model="Godina_proizvodnje"
-          />
-        </div>
+          <input class="input" type="text" placeholder="Godina proizvodnje" v-model="Godina_proizvodnje"/>
       </div>
 
       <div class="field">
-        <label class="label">Broj prijedenih kilometara</label>
-        <div class="control">
-          <input
-            class="input"
-            type="text"
-            placeholder="Broj prijedenih kilometara"
-            v-model="Broj_prijedenih_kilometara"
-          />
-        </div>
+          <input class="input" type="text" placeholder="Broj prijedenih kilometara" v-model="Broj_prijedenih_kilometara"/>
       </div>
 
       <div class="field">
-        <label class="label">Cijena vozila</label>
-        <div class="control">
-          <input
-            class="input"
-            type="text"
-            placeholder="Cijena vozila"
-            v-model="Cijena_vozila"
-          />
-        </div>
+          <input class="input" type="text" placeholder="Cijena vozila" v-model="Cijena_vozila"/>
       </div>
 
       <div class="field">
-        <div>
-          <p>Upload slike</p>
-          <input type="file" @change="previewImage" accept="image/*">
-          <p>Progress: {{uploadValue.toFixed()+"%"}}
+        <div class="field">
+          <p>Slika vozila</p>
+          <input class="input" type="file" @change="previewImage" accept="image/*">
+          <p class="field">Progress: {{uploadValue.toFixed()+"%"}}
             <progress :value="uploadValue" max="100"></progress>
         </p>
         </div>
@@ -97,6 +43,7 @@
     <div class="control">
       <button class="unesi" @click="onUpload">Spremi</button>
     </div>
+  </div>
   </div>
 </template>
  
@@ -171,41 +118,91 @@ export default {
 </script>
  
 <style>
+  .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin:auto;
+  }
+  .field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
   input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid #dbe5eb;
+    border: 2px solid #00A1C0;
     border-radius: 4px;
+    font-size: 20px;
   }
   input[type=text]:focus {
-    background-color: #dbe5eb;
-    opacity: 30%;
+    background-color: #e7e7e7;
   }
-  textarea {
+  .txt {
     width: 100%;
     height: 150px;
-    padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid #183031;
+    border: 2px solid #00A1C0;
     border-radius: 4px;
-    background-color: #dbe5eb;
-    opacity:40%;
     resize: none;
+    margin-bottom: 10px;
+  }
+  .txt:focus{
+    background-color: #e7e7e7;
   }
   .unesi {
-    transition-duration: 0.4s;
-    font-size: 14px;
-    padding: 14px 40px;
-    border-radius: 4px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #00A1C0;
+    border: none;
+    color: black;
+    padding: 8px 32px;
+    border-radius: 5px;
+    cursor: pointer;
     margin-top: 10px;
+    font-weight: bold;
     }
-  
+
   .unesi:hover {
-    background-color: #183031; /* Green */
-    color: #dbe5eb;
+    background-color: #00A1C0;
+    color: #EBDBDC;
   }
-  </style>
+
+  h1{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 15px 0px 15px;
+  }
+
+  .odabir {
+    width: 40%;
+    padding: 12px 20px;
+    border: 2px solid #00A1C0;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+  }
+  .odabir:hover {
+    background-color: #f1f1f1;
+    color: #00574b;
+  }
+  .field-parking{
+  display:flex;
+  justify-content: center;
+  }
+  .lbl{
+    margin-right: 30px;
+    align-self: center;
+  }
+  
+  .edit-form{
+    width: 100%;
+  }
+</style>
+
   

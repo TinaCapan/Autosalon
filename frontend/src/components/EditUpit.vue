@@ -61,7 +61,7 @@
       </div>
       
     <div class="control">
-        <button class="button is-success" @click="updateUpit">Spremi</button>
+        <button class="edit" @click="updateUpit">Spremi</button>
     </div>
     </div>
 </template>
@@ -128,6 +128,3 @@ export default {
   },
 };
 </script>
- 
-<style>
-</style>

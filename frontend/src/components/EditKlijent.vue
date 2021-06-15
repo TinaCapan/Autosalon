@@ -49,7 +49,7 @@
       </div>
       
     <div class="control">
-        <button class="button is-success" @click="updateKlijent">Spremi</button>
+        <button class="edit" @click="updateKlijent">Spremi</button>
     </div>
     </div>
 </template>
@@ -112,5 +112,3 @@ export default {
 };
 </script>
  
-<style>
-</style>
