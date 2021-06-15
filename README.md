@@ -8,3 +8,16 @@ Klijent bi u aplikaciji imao uvid u sva vozila iz ponude te bi mogao poslati upi
 Za rezerviranje probne vožnje potrebno je unijeti podatke o klijentu i podatke o vozilu za koje se želi rezervirati probna vožnja. Prilikom rezerviranja probne vožnje od zaposlenika bi se tražio odabir termina u kojem klijent želi izvršiti probnu vožnju, što bi bilo potrebno ograni?iti na na?in da se termini probnih vožnji za isto vozilo ne poklapaju.
 
 Prilikom realizacije prodaje vozila, kreira se ugovor. Zaposlenik unosi podatke o klijentu te o vozilu koje je prodano. Prilikom kreiranja ugovora, vozilo je potrebno obrisati sa popisa vozila koja su u ponudi na prodaju kako više ne bi bilo vidljivo ostalim klijentima koji pregledavaju aplikaciju.
+
+
+Instalacija	
+-	Prvo je potrebno instalirati Node.js
+Server 
+-	Cd backend
+-	Instalacija: Npm install axios core-js
+-	Pokretanje: Node index
+Klijent 
+-	Cd frontend
+-	Instalacija: Npm install vue vue-router firebase
+-	Pokretanje: Npm run serve
+Otvaranje aplikacije: http://localhost:8080
