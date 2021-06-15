@@ -64,7 +64,7 @@ export default {
         this.ID_klijenta = "";
         this.ID_vozila = "";
         this.Datum_ugovora = "";
-        this.$router.push("/");
+        this.$router.push("/ListaUgovora");
       } 
       catch (err) {
         console.log(err);

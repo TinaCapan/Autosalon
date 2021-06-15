@@ -161,7 +161,7 @@ export default {
         this.Broj_prijedenih_kilometara = "";
         this.Cijena_vozila = "";
         this.picture=""
-        this.$router.push("/");
+        this.$router.push("/ListaVozila");
       } catch (err) {
         console.log(err);
       }

@@ -103,7 +103,7 @@ export default {
         this.OIB_klijenta = "";
         this.Kontakt = "";
         this.Mail = "";
-        this.$router.push("/");
+        this.$router.push("/ListaKlijenata");
         } catch (err) {
         console.log(err);
       }

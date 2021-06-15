@@ -151,7 +151,7 @@ export default {
         this.Godina_proizvodnje = "";
         this.Broj_prijedenih_kilometara = "";
         this.Cijena_vozila = "";
-        this.$router.push("/");
+        this.$router.push("/ListaVozila");
         } catch (err) {
         console.log(err);
       }

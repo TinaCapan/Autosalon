@@ -1,10 +1,13 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import { createApp } from 'vue'
 import App from './App.vue'
+import firebase from 'firebase'
 
 import Register from '@/components/Register.vue'
 import Login from '@/components/Login.vue'
 import ForgetPassword from '@/components/ForgetPassword'
+
+import Home from '@/components/Home.vue' 
 
 import KreirajVozilo from './components/AddVozilo.vue'
 import IzmjeniVozilo from './components/EditVozilo.vue'
@@ -30,11 +33,18 @@ import CardVozila from './components/CardVozila.vue'
 
 const routes = [
   {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
     name: 'KreirajVozilo',
     path: '/kreirajVozilo',
-    component: KreirajVozilo
-  },
-  
+    component: KreirajVozilo,
+    meta: {
+      authRequired: true
+    }
+  },  
   {
     path: '/register',
     name: 'Register',
@@ -56,7 +66,10 @@ const routes = [
   {
     name: 'IzmjeniVozilo',
     path: '/izmjeniVozilo/:id',
-    component: IzmjeniVozilo
+    component: IzmjeniVozilo,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'CardVozila',
@@ -65,28 +78,40 @@ const routes = [
   },
   {
     name: 'ListaVozila',
-    path: '/',
-    component: ListaVozila
+    path: '/listaVozila',
+    component: ListaVozila,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'KreirajKlijenta',
     path: '/kreirajKlijenta',
-    component: KreirajKlijenta
+    component: KreirajKlijenta,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'IzmjeniKlijenta',
     path: '/izmjeniKlijenta/:id',
-    component: IzmjeniKlijenta
+    component: IzmjeniKlijenta,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'ListaKlijenata',
     path: '/listaKlijenata',
-    component: ListaKlijenata
+    component: ListaKlijenata,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'KreirajUpit',
     path: '/kreirajUpit',
-    component: KreirajUpit
+    component: KreirajUpit,
   },
   
   {
@@ -97,27 +122,42 @@ const routes = [
   {
     name: 'IzmjeniUpit',
     path: '/izmjeniUpit/:id',
-    component: IzmjeniUpit
+    component: IzmjeniUpit,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'ListaUpita',
     path: '/listaUpita',
-    component: ListaUpita
+    component: ListaUpita,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'KreirajUgovor',
     path: '/kreirajUgovor',
-    component: KreirajUgovor
+    component: KreirajUgovor,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'IzmjeniUgovor',
     path: '/izmjeniUgovor/:id',
-    component: IzmjeniUgovor
+    component: IzmjeniUgovor,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'ListaUgovora',
     path: '/listaUgovora',
-    component: ListaUgovora
+    component: ListaUgovora,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'KreirajProbnuVoznju',
@@ -127,12 +167,18 @@ const routes = [
   {
     name: 'IzmjeniProbnuVoznju',
     path: '/izmjeniProbnuVoznju/:id',
-    component: IzmjeniProbnuVoznju
+    component: IzmjeniProbnuVoznju,
+    meta: {
+      authRequired: true
+    }
   },
   {
     name: 'ListaProbnaVoznja',
     path: '/listaProbnaVoznja',
-    component: ListaProbnaVoznja
+    component: ListaProbnaVoznja,
+    meta: {
+      authRequired: true
+    }
   }
 ];
  
@@ -141,4 +187,19 @@ const router = createRouter({
   routes
 })
   
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.authRequired)) {
+    if (firebase.auth().currentUser) {
+      next()
+    } else {
+      alert('Za pristup ovoj stranici morate biti prijavljeni')
+      next({
+        path: '/'
+      })
+    }
+  } else {
+    next()
+  }
+})
+
 createApp(App).use(router).use(router).mount('#app')

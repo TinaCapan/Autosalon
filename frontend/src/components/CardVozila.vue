@@ -1,8 +1,7 @@
 <template>
-  <div><router-link :to="{ name: 'KreirajUpitNovo' }">
-    <button class="add">Novi upit</button>
-  </router-link
-    ></div>
+  <div>
+    <router-link :to="{ name: 'KreirajUpitNovo' }" v-if="!user"><button class="add">Novi upit</button></router-link>
+  </div>
     <div class="main">
     <div class="card" v-for="vozilo in vozilo" :key="vozilo.ID_vozila">
       <img :src="vozilo.Slika" alt="Auto1" style="width:200px">
@@ -14,29 +13,18 @@
         <p>{{ vozilo.Broj_prijedenih_kilometara }}</p>
         <p class="price">{{ vozilo.Cijena_vozila }}</p>
         <div class="buttoni">
-          <router-link
-              :to="{ name: 'KreirajUpit', params: { id: vozilo.ID_vozila, naziv: vozilo.Marka_model_vozila } }"
-              class="button is-info is-small"
-              >Upit</router-link
-            >
-            <router-link
-                :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }"
-                class="button is-info is-small"
-                >Izmjeni</router-link
-            >
-            <a
-                class="button is-danger is-small"
-                @click="deleteVozilo(vozilo.ID_vozila)"
-                >Delete</a
-            >
+          <router-link v-if="!user" :to="{ name: 'KreirajUpit', params: { id: vozilo.ID_vozila, naziv: vozilo.Marka_model_vozila } }"
+              class="button is-info is-small">Upit</router-link>
+            <router-link v-if="user" :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }" class="button is-info is-small">Izmjeni</router-link>
+            <a class="button is-danger is-small" @click="deleteVozilo(vozilo.ID_vozila)" v-if="user">Delete</a>
         </div>
     </div>
   </div>
 </template>
  
 <script>
-// import axios
 import axios from "axios";
+import firebase from 'firebase'
  
 export default {
   name: "CardVozila",
@@ -48,8 +36,15 @@ export default {
  
   created() {
     this.getVozilo();
-  },
- 
+    var vm = this
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        vm.user = user
+      } else {
+        vm.user = null
+      }
+    })
+}, 
   methods: {
     // Get All Products
     async getVozilo() {
