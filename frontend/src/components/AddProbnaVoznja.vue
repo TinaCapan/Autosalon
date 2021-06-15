@@ -35,7 +35,6 @@
         <option value="14:00">14:00</option>
         <option value="15:00">15:00</option>
       </select>
-      <span>{{vrijemeSelect}}</span>
     </div>
 
     <div class="field">
@@ -46,7 +45,6 @@
               {{ klijent.Ime_prezime_klijenta }}
             </option>
           </select>
-          <span>Selected: {{ ID_klijenta }} {{Termin}}</span>
         </div>
       </div>
  
@@ -57,7 +55,6 @@
 </template>
  
 <script>
-// import axios
 import axios from "axios";
  
 export default {
@@ -118,7 +115,7 @@ export default {
       if(res!=null){
       this.res=res.data[0].ID_voznje;
       console.log(res.data[0]);
-        alert("Probna vožnja je već zakazana za taj datum. Molimo izaberite drugo vrijeme.");}
+        alert("Probna vožnja je već zakazana za taj datum i vrijeme. Molimo izaberite drugi termin.");}
     } catch (err){
       this.saveProbnaVoznja();
     }
