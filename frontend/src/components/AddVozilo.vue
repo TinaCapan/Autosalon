@@ -166,6 +166,8 @@ export default {
     cursor: pointer;
     margin-top: 10px;
     font-weight: bold;
+    align-items: center;
+    justify-content: center;
     }
 
   .unesi:hover {

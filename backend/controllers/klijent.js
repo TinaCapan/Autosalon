@@ -48,7 +48,6 @@ export const updateKlijent = (req, res) => {
     });
 }
  
-// Delete Product
 export const deleteKlijent = (req, res) => {
     const id = req.params.id;
     deleteKlijentById(id, (err, results) => {

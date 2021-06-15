@@ -22,8 +22,8 @@
           <td>{{ klijent.Kontakt }}</td>
           <td>{{ klijent.Mail }}</td>
           <td class="has-text-centered">
-            <router-link :to="{ name: 'IzmjeniKlijenta', params: { id: klijent.ID_klijenta } }" class="edit">Izmjeni</router-link>
-            <a class="edit" @click="deleteKlijent(klijent.ID_klijenta)">Delete</a>
+            <router-link :to="{ name: 'IzmjeniKlijenta', params: { id: klijent.ID_klijenta } }" class="edit">IZMJENI</router-link>
+            <a class="edit" @click="deleteKlijent(klijent.ID_klijenta)">OBRIŠI</a>
           </td>
         </tr>
       </tbody>

@@ -29,10 +29,10 @@
           <td>{{ vozilo.Cijena_vozila }}</td>
           <td class="has-text-centered">
             <router-link :to="{ name: 'KreirajProbnuVoznju', params: { id: vozilo.ID_vozila, naziv: vozilo.Marka_model_vozila } }"
-              class="edit">Probna vožnja</router-link>
+              class="edit">PROBNA VOŽNJA</router-link><br>
             <router-link :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }"
-              class="edit">Izmjeni</router-link>
-            <a class="edit" @click="deleteVozilo(vozilo.ID_vozila)">Delete</a>
+              class="edit">IZMJENI</router-link><br>
+            <a class="edit" @click="deleteVozilo(vozilo.ID_vozila)">OBRIŠI</a>
           </td>
         </tr>
       </tbody>
@@ -126,6 +126,7 @@ export default {
 .naslov {
   font-size: 20px;
   font-weight: bold;
+  padding: 10px 10px 10px 10px;
 }
 
 .add {
@@ -149,17 +150,9 @@ export default {
 }
 
 .edit{
-  background-color: #77777741;;
-  border: none;
-  color: black;
-  border-radius: 5px;
   cursor: pointer;
   padding: 5px 5px 5px 5px;
   margin-bottom: 5px;
   font-weight: bold;
-}
-.edit:hover {
-  background-color: #00A1C0;
-  color: #EBDBDC;
 }
 </style>

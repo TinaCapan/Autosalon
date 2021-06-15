@@ -14,9 +14,9 @@
         <p class="price">{{ vozilo.Cijena_vozila }}</p>
         <div class="buttoni">
           <router-link v-if="!user" :to="{ name: 'KreirajUpit', params: { id: vozilo.ID_vozila, naziv: vozilo.Marka_model_vozila } }"
-              class="button is-info is-small">Upit</router-link>
-            <router-link v-if="user" :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }" class="button is-info is-small">Izmjeni</router-link>
-            <a class="button is-danger is-small" @click="deleteVozilo(vozilo.ID_vozila)" v-if="user">Delete</a>
+              class="edit">POŠALJI UPIT</router-link>
+            <router-link v-if="user" :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }" class="button is-info is-small">IZMJENI</router-link>
+            <a class="edit" @click="deleteVozilo(vozilo.ID_vozila)" v-if="user">OBRIŠI</a>
         </div>
     </div>
   </div>
@@ -77,7 +77,7 @@ export default {
     }
     .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 400px;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -87,18 +87,14 @@ export default {
 .price {
   color: grey;
   font-size: 22px;
+  font-style: bold;
 }
 
 .card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
   cursor: pointer;
-  width: 100%;
-  font-size: 18px;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .card button:hover {

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="card">
         <div class="field">
           <label class="label">Marka i model vozila</label>
           <div class="control">
@@ -85,7 +85,7 @@
           </div>
      
         <div class="control">
-          <button class="edit" @click="updateVozilo">Spremi</button>
+          <button class="unesi" @click="updateVozilo">Spremi</button>
         </div>
       </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <div class="field">
       <label class="label">Termin</label>
       <div class="control">
@@ -25,7 +25,7 @@
     </div>
       
     <div class="control">
-        <button class="edit" @click="provjeriTermin">Spremi</button>
+        <button class="unesi" @click="provjeriTermin">Spremi</button>
     </div>
     </div>
 </template>

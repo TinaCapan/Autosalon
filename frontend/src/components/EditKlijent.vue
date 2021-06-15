@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <div class="field">
       <label class="label">Ime i prezime klijenta</label>
       <div class="control">
@@ -49,7 +49,7 @@
       </div>
       
     <div class="control">
-        <button class="edit" @click="updateKlijent">Spremi</button>
+        <button class="unesi" @click="updateKlijent">Spremi</button>
     </div>
     </div>
 </template>
@@ -111,4 +111,3 @@ export default {
   },
 };
 </script>
- 

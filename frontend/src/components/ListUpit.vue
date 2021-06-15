@@ -1,6 +1,8 @@
 <template>
   <div class="row">
+    <div class="naslov-button">
       <div class="naslov">POPIS UPITA ZA VOZILA IZ PONUDE</div>
+    </div>
       <div class="tdiv">
       <table class="tablica">
       <thead>
@@ -22,7 +24,7 @@
           <td>{{ upit.OIB }}</td>
           <td class="has-text-centered">
             <a
-              class="button is-danger is-small"
+              class="edit"
               @click="deleteUpit(upit.ID_upita)"
               >OBRIŠI</a
             >
@@ -34,7 +36,9 @@
   </div>
   <!--novo vozilo-->
   <div class="row">
-    <div class="naslov">POPIS UPITA ZA NOVA VOZILA</div>
+    <div class="naslov-button">
+    <div class="naslovdva">POPIS UPITA ZA NOVA VOZILA</div>
+    </div>
     <div class="tdiv">
     <table class="tablica">
       <thead>
@@ -56,7 +60,7 @@
           <td>{{ upitnovo.OIB }}</td>
           <td class="has-text-centered">
             <a
-              class="button is-danger is-small"
+              class="edit"
               @click="deleteUpit(upitnovo.ID_upita)"
               >OBRIŠI</a>
           </td>
@@ -117,4 +121,10 @@ export default {
   },
 };
 </script>
- 
+ <style>
+   .naslovdva{
+     padding: 30px 10px 10px 10px;
+  font-size: 20px;
+  font-weight: bold;
+   }
+ </style>

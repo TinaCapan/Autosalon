@@ -9,21 +9,13 @@
           <th>Termin</th>
           <th>Klijent</th>
           <th>Vozilo</th>
-          <th>Mogućnosti</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="probnaVoznja in probnaVoznja" :key="probnaVoznja.ID_voznje">
-          <td>{{ formatDate(probnaVoznja.Termin) }}</td>
-          <td>{{ probnaVoznja.Ime_prezime_klijenta }}</td>
-          <td>{{ probnaVoznja.Marka_model_vozila }}</td>
-          <td class="has-text-centered">
-            <router-link
-              :to="{ name: 'IzmjeniProbnuVoznju', params: { id: probnaVoznja.ID_voznje } }"
-              class="edit" >IZMJENI</router-link>
-            <a class="edit"
-              @click="deleteProbnaVoznja(probnaVoznja.ID_voznje)">OBRIŠI</a>
-          </td>
+        <tr v-for="probnaVoznje in probnaVoznja" :key="probnaVoznje.ID_voznje">
+          <td>{{ formatDate(probnaVoznje.Termin) }}</td>
+          <td>{{ probnaVoznje.Ime_prezime_klijenta }}</td>
+          <td>{{ probnaVoznje.Marka_model_vozila }}</td>
         </tr>
       </tbody>
     </table>
@@ -48,7 +40,6 @@ export default {
   },
  
   methods: {
-    // Get All Products
     async getProbnaVoznja() {
       try {
         const response = await axios.get("http://localhost:8081/probnaVoznja");
@@ -65,7 +56,6 @@ export default {
     return datestring;
     },
 
-    // Delete Product
     async deleteProbnaVoznja(id) {
       try {
         await axios.delete(`http://localhost:8081/probnaVoznja/${id}`);

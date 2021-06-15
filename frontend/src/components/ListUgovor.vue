@@ -3,7 +3,7 @@
   <div class="naslov-button">
     <div class="naslov">POPIS UGOVORA</div>
     <router-link :to="{ name: 'KreirajUgovor' }">
-      <button class="add">Novi ugovor</button>
+      <button class="add">KREIRAJ NOVI UGOVOR</button>
     </router-link></div>
     <div class="tdiv">
     <table class="tablica">

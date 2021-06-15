@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <div class="field">
       <label class="label">Klijent</label>
       <div class="control">

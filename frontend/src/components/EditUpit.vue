@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <div class="field">
       <label class="label">ID_vozila</label>
       <div class="control">
