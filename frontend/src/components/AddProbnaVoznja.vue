@@ -1,23 +1,19 @@
 <template>
-  <div class="card card-body">
-  <h1>Upit za: {{this.$route.params.naziv}}</h1>
-  <div>
-    <div class="field">
+  <div class="card">
+  <h1>Kreiranje probne vožnje za {{this.$route.params.naziv}}</h1>
+    <div class="fieldid">
       <label class="label">ID odabranog vozila</label>
-      <div class="control">
         <input
-          class="input"
+          class="idvozila"
           type="text"
           placeholder="ID_vozila"
           v-model="ID_vozila"
           disabled
           />
-      </div>
     </div>
     <div class="field">
       <label class="label">Odaberite željeni termin probne vožnje</label>
-      <div class="control">
-        <input
+        <input class="datum"
           id="date"
           min="2021-06-10"
           max="2999-06-30"
@@ -25,7 +21,6 @@
           placeholder="Datum"
           v-model="Datum"
         />
-      </div>
       <select class="odabir" v-model="vrijemeSelect">
         <option value="08:00">08:00</option>
         <option value="09:00">09:00</option>
@@ -40,19 +35,13 @@
 
     <div class="field">
         <label class="label">Klijent</label>
-        <div class="control">
           <select class="odabir" v-model="ID_klijenta">
             <option v-for="klijent in klijent" v-bind:key="klijent.ID_klijenta" v-bind:value="klijent.ID_klijenta">
               {{ klijent.Ime_prezime_klijenta }}
             </option>
           </select>
-        </div>
       </div>
- 
-    <div class="control">
       <button class="btnunesi" @click="provjeriTermin">Spremi</button>
-    </div>
-  </div>
   </div>
 </template>
  
@@ -71,10 +60,12 @@ export default {
       klijent:[],
       res:"",
       today: new Date().toISOString().substring(0,19),
+      vozilo:[]
     };
   },
   created(){
-    this.getKlijent()
+    this.getKlijent();
+    this.getVozilo();
   },
   methods: {
     // Create New product
@@ -121,8 +112,37 @@ export default {
     } catch (err){
       this.saveProbnaVoznja();
     }
-  }
+  },
+  async getVozilo() {
+      try {
+        const response = await axios.get("http://localhost:8081/vozilo");
+        this.vozilo = response.data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
   },
 };
 </script>
- 
+ <style>
+   .idvozila{
+    width: 40%;
+    padding: 12px 20px;
+    border: 2px solid #012855d7;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+   }
+   .fieldid{
+     width: 40%;
+   }
+   .datum {
+    width: 40%;
+    padding: 12px 20px;
+    border: 2px solid #012855d7;
+    
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+  }
+ </style>

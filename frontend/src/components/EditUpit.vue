@@ -2,67 +2,55 @@
   <div class="card">
     <div class="field">
       <label class="label">ID_vozila</label>
-      <div class="control">
         <input
           class="input"
           type="text"
           placeholder="ID_vozila"
           v-model="ID_vozila"
         />
-      </div>
     </div>
  
     <div class="field">
       <label class="label">Novo vozilo</label>
-      <div class="control">
         <input
           class="input"
           type="text"
           placeholder="NovoVozilo"
           v-model="NovoVozilo"
         />
-      </div>
     </div>
 
     <div class="field">
         <label class="label">Ime_prezime</label>
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="ImePrezime"
             v-model="Ime_prezime"
           />
-        </div>
       </div>
 
       <div class="field">
         <label class="label">Kontakt</label>
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="Kontakt"
             v-model="Kontakt"
           />
-        </div>
       </div>
 
       <div class="field">
         <label class="label">OIB</label>
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="OIB"
             v-model="OIB"
           />
-        </div>
       </div>
       
-    <div class="control">
         <button class="edit" @click="updateUpit">Spremi</button>
-    </div>
     </div>
 </template>
  
