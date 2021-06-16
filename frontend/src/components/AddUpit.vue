@@ -2,41 +2,33 @@
   <div class="card card-body">
   <h1>Upit za:{{this.$route.params.naziv}}</h1>
 <div class="field">
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="Ime i prezime"
             v-model="Ime_prezime"
           />
-        </div>
       </div>
 
     <div class="field">
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="Kontakt"
             v-model="Kontakt"
           />
-        </div>
       </div>
 
       <div class="field">
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="OIB"
             v-model="OIB"
           />
-        </div>
       </div>
  
-    <div class="control">
-      <button class="unesi" @click="saveUpit">Spremi</button>
-    </div>
+      <button class="btnunesi" @click="saveUpit">Spremi</button>
   </div>
 </template>
  
@@ -92,4 +84,3 @@ export default {
   },
 };
 </script>
- 

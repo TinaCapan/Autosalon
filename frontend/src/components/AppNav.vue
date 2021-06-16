@@ -1,6 +1,6 @@
 <template>
   <div id="appnav" class="appnav">
-    <img :src="require('../assets/car.png')" alt="Auto1" style="width:50px">
+    <router-link to="/" class="nav-naziv" active-class="active" exact>AUTOSALON XY</router-link>
       <div class="topnav">
         <router-link to="/" class="nav-item" active-class="active" exact>NASLOVNA</router-link>
         <router-link to="ListaVozila" v-if="user" class="nav-item" active-class="active" exact>VOZILA</router-link>
@@ -61,7 +61,7 @@ justify-content: space-around;
 align-items: center;
 height: 8vh;
 width: 100%;
-background-color: #00A1C0;
+background-color: #012855;
 }
 
 .nsl{
@@ -98,5 +98,12 @@ width:40%;
   cursor:pointer;
   color: #ffffff;
   font-size: 20px;
+}
+
+.nav-naziv{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
 }
 </style>

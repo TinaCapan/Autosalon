@@ -2,18 +2,16 @@
   <div class="card">
     <div class="field">
       <label class="label">Klijent</label>
-      <div class="control">
-        <select v-model="ID_klijenta">
+        <select class="odabir" v-model="ID_klijenta">
           <option v-for="klijent in klijent" v-bind:key="klijent.ID_klijenta" v-bind:value="klijent.ID_klijenta">
             {{ klijent.Ime_prezime_klijenta }}
           </option>
         </select>
-      </div>
     </div>
  
     <div class="field">
       <label class="label">Vozilo</label>
-      <select v-model="ID_vozila">
+      <select class="odabir" v-model="ID_vozila">
         <option v-for="vozilo in vozilo" v-bind:key="vozilo.ID_vozila" v-bind:value="vozilo.ID_vozila">
           {{vozilo.ID_vozila + ' - ' + vozilo.Marka_model_vozila + ' - ' + vozilo.Godina_proizvodnje }}
         </option>
@@ -23,10 +21,8 @@
     <div class="field">
         <span>Datum: {{ Datum_ugovora }}</span>
       </div>
- 
-    <div class="control">
-      <button class="unesi" @click="saveUgovor">Spremi</button>
-    </div>
+
+      <button class="btnunesi" @click="saveUgovor">Spremi</button>
   </div>
 </template>
  
@@ -96,3 +92,18 @@ export default {
   },
 };
 </script>
+<style>
+  .odabir {
+    width: 40%;
+    padding: 12px 20px;
+    border: 2px solid #012855d7;
+    
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+  }
+  .odabir:hover {
+    background-color: #f1f1f1;
+    color: #00574b;
+  }
+  </style>

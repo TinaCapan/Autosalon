@@ -2,31 +2,25 @@
   <div class="card">
     <div class="field">
       <label class="label">Termin</label>
-      <div class="control">
         <input
           class="input"
           type="text"
           placeholder="Termin"
           v-model="Termin"
         />
-      </div>
     </div>
  
     <div class="field">
       <label class="label">ID_vozila</label>
-      <div class="control">
         <input
           class="input"
           type="text"
           placeholder="ID_vozila"
           v-model="ID_vozila"
         />
-      </div>
     </div>
       
-    <div class="control">
-        <button class="unesi" @click="provjeriTermin">Spremi</button>
-    </div>
+        <button class="btnunesi" @click="provjeriTermin">Spremi</button>
     </div>
 </template>
  

@@ -26,7 +26,7 @@
           v-model="Datum"
         />
       </div>
-      <select v-model="vrijemeSelect">
+      <select class="odabir" v-model="vrijemeSelect">
         <option value="08:00">08:00</option>
         <option value="09:00">09:00</option>
         <option value="10:00">10:00</option>
@@ -41,7 +41,7 @@
     <div class="field">
         <label class="label">Klijent</label>
         <div class="control">
-          <select v-model="ID_klijenta">
+          <select class="odabir" v-model="ID_klijenta">
             <option v-for="klijent in klijent" v-bind:key="klijent.ID_klijenta" v-bind:value="klijent.ID_klijenta">
               {{ klijent.Ime_prezime_klijenta }}
             </option>
@@ -50,7 +50,7 @@
       </div>
  
     <div class="control">
-      <button class="unesi" @click="provjeriTermin">Spremi</button>
+      <button class="btnunesi" @click="provjeriTermin">Spremi</button>
     </div>
   </div>
   </div>

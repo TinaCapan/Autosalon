@@ -35,7 +35,6 @@
 .slika img{
   width: 100%;
   height: 92vh;
-  opacity: 60%;
 }
 #onama {
   position: absolute;

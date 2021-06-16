@@ -7,7 +7,7 @@
       <input class="input" type="password" placeholder="Unesite lozinku" v-model="password"/>
     </div>
     <div class="x">Zaboravili ste lozinku? <router-link to='/forgetpassword'>Postavite novu lozinku</router-link></div>
-    <button class="unesi">Prijava</button>
+    <button class="btnunesi">Prijava</button>
   </form>
   </div>
 </template>
@@ -52,7 +52,7 @@ export default {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid #00A1C0;
+    border: 2px solid #012855;
     border-radius: 4px;
     font-size: 20px;
   }
@@ -64,7 +64,7 @@ export default {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid #00A1C0;
+    border: 2px solid #012855;
     border-radius: 4px;
     font-size: 20px;
   }

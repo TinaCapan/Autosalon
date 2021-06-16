@@ -114,11 +114,11 @@ export default {
 
 .tablica tr:nth-child(even){background-color: rgb(255, 255, 255);}
 
-.tablica tr:hover {background-color: #9cccd66e;}
+.tablica tr:hover {background-color: #0046962f;}
 
 .tablica th {
   padding: 12px 36px;
-  background-color: #00A1C0;
+  background-color: #012855d7;
   color: white;
   text-align: center;
 }
@@ -145,7 +145,7 @@ export default {
   }
 
 .add:hover {
-  background-color: #00A1C0;
+  background-color: #012855;
   color: #EBDBDC;
 }
 

@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="card card-body">
       <h1>UNOS VOZILA</h1>
     <div class="field">
@@ -40,10 +39,7 @@
         </div>
       </div>
       <img class="preview" :src="picture">
-    <div class="control">
-      <button class="unesi" @click="onUpload">Spremi</button>
-    </div>
-  </div>
+      <button class="btnunesi" @click="onUpload">Spremi</button>
   </div>
 </template>
  
@@ -123,7 +119,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 40%;
     margin:auto;
   }
   .field{
@@ -138,7 +134,7 @@ export default {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid #00A1C0;
+    border: 2px solid #012855;
     border-radius: 4px;
     font-size: 20px;
   }
@@ -149,7 +145,7 @@ export default {
     width: 100%;
     height: 150px;
     box-sizing: border-box;
-    border: 2px solid #00A1C0;
+    border: 2px solid #012855;
     border-radius: 4px;
     resize: none;
     margin-bottom: 10px;
@@ -157,41 +153,10 @@ export default {
   .txt:focus{
     background-color: #e7e7e7;
   }
-  .unesi {
-    background-color: #00A1C0;
-    border: none;
-    color: black;
-    padding: 8px 32px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    }
-
-  .unesi:hover {
-    background-color: #00A1C0;
-    color: #EBDBDC;
-  }
-
   h1{
     font-size: 20px;
     font-weight: bold;
     padding: 15px 15px 0px 15px;
-  }
-
-  .odabir {
-    width: 40%;
-    padding: 12px 20px;
-    border: 2px solid #00A1C0;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-    margin-top: 10px;
-  }
-  .odabir:hover {
-    background-color: #f1f1f1;
-    color: #00574b;
   }
   .field-parking{
   display:flex;
@@ -204,6 +169,13 @@ export default {
   
   .edit-form{
     width: 100%;
+  }
+  .btnunesi{
+    padding: 15px 25px 15px 25px;
+    background-color: #012855;
+    color:white;
+    height: 5vh;
+    width: 10vh;
   }
 </style>
 

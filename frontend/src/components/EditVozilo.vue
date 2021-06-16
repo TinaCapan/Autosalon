@@ -2,91 +2,75 @@
     <div class="card">
         <div class="field">
           <label class="label">Marka i model vozila</label>
-          <div class="control">
             <input
               class="input"
               type="text"
               placeholder="markaModel"
               v-model="Marka_model_vozila"
             />
-          </div>
         </div>
      
         <div class="field">
           <label class="label">Vrsta motora</label>
-          <div class="control">
             <input
               class="input"
               type="text"
               placeholder="VrstaMotora"
               v-model="Vrsta_motora"
             />
-          </div>
         </div>
     
         <div class="field">
             <label class="label">Snaga motora</label>
-            <div class="control">
               <input
                 class="input"
                 type="text"
                 placeholder="SnagaMotora"
                 v-model="Snaga_motora"
               />
-            </div>
           </div>
     
           <div class="field">
             <label class="label">Radni obujam</label>
-            <div class="control">
               <input
                 class="input"
                 type="text"
                 placeholder="RadniObujam"
                 v-model="Radni_obujam"
               />
-            </div>
           </div>
     
           <div class="field">
             <label class="label">Godina proizvodnje</label>
-            <div class="control">
               <input
                 class="input"
                 type="text"
                 placeholder="GodinaProizvodnje"
                 v-model="Godina_proizvodnje"
               />
-            </div>
           </div>
     
           <div class="field">
             <label class="label">Broj prijedenih kilometara</label>
-            <div class="control">
               <input
                 class="input"
                 type="text"
                 placeholder="BrojPrijedenihKilometara"
                 v-model="Broj_prijedenih_kilometara"
               />
-            </div>
           </div>
     
           <div class="field">
             <label class="label">Cijena vozila</label>
-            <div class="control">
               <input
                 class="input"
                 type="text"
                 placeholder="CijenaVozila"
                 v-model="Cijena_vozila"
               />
-            </div>
           </div>
      
-        <div class="control">
-          <button class="unesi" @click="updateVozilo">Spremi</button>
-        </div>
+          <button class="btnunesi" @click="updateVozilo">Spremi</button>
       </div>
 </template>
  

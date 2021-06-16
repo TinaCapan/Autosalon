@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <router-link :to="{ name: 'KreirajUpitNovo' }" v-if="!user"><button class="add">Novi upit</button></router-link>
+  <div class="naslov-button">
+    <router-link :to="{ name: 'KreirajUpitNovo' }" v-if="!user"><button class="add">POŠALJI UPIT ZA NOVO VOZILO</button></router-link>
   </div>
     <div class="main">
-    <div class="card" v-for="vozilo in vozilo" :key="vozilo.ID_vozila">
-      <img :src="vozilo.Slika" alt="Auto1" style="width:200px">
+    <div class="cards" v-for="vozilo in vozilo" :key="vozilo.ID_vozila">
+      <img :src="vozilo.Slika" alt="Auto1" style="width:350px">
         <h1>{{ vozilo.Marka_model_vozila }}</h1>
         <p>{{ vozilo.Vrsta_motora }}</p>
         <p>{{ vozilo.Snaga_motora }}</p>
@@ -14,9 +14,9 @@
         <p class="price">{{ vozilo.Cijena_vozila }}</p>
         <div class="buttoni">
           <router-link v-if="!user" :to="{ name: 'KreirajUpit', params: { id: vozilo.ID_vozila, naziv: vozilo.Marka_model_vozila } }"
-              class="edit">POŠALJI UPIT</router-link>
-            <router-link v-if="user" :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }" class="button is-info is-small">IZMJENI</router-link>
-            <a class="edit" @click="deleteVozilo(vozilo.ID_vozila)" v-if="user">OBRIŠI</a>
+              class="upitvozilo">POŠALJI UPIT</router-link>
+            <router-link v-if="user" :to="{ name: 'IzmjeniVozilo', params: { id: vozilo.ID_vozila } }" class="upitvozilo">IZMJENI</router-link>
+            <a class="upitvozilo" @click="deleteVozilo(vozilo.ID_vozila)" v-if="user">OBRIŠI</a>
         </div>
     </div>
   </div>
@@ -70,18 +70,24 @@ export default {
 </script>
  
 <style>
-    .main{
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    .card {
+  .main{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap:wrap;
+  }
+  .cards {
+  background-color: rgba(226, 226, 226, 0.274);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  width: 400px;
+  height: 600px;
   margin: auto;
   text-align: center;
-  font-family: arial;
-  justify-content: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
 }
 
 .price {
@@ -99,5 +105,18 @@ export default {
 
 .card button:hover {
   opacity: 0.7;
+}
+
+.upitvozilo{
+  background-color: #012855;
+  color: white;
+  cursor: pointer;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
 }
 </style>

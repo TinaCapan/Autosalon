@@ -2,52 +2,42 @@
   <div class="card card-body">
     <h1>UNOS KLIJENTA</h1>
     <div class="field">
-      <div class="control">
         <input
           class="input"
           type="text"
           placeholder="Ime i prezime klijenta"
           v-model="Ime_prezime_klijenta"
         />
-      </div>
     </div>
  
     <div class="field">
-      <div class="control">
         <input
           class="input"
           type="text"
           placeholder="OIB klijenta"
           v-model="OIB_klijenta"
         />
-      </div>
     </div>
 
     <div class="field">
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="Kontakt"
             v-model="Kontakt"
           />
-        </div>
       </div>
 
       <div class="field">
-        <div class="control">
           <input
             class="input"
             type="text"
             placeholder="E-mail"
             v-model="Mail"
           />
-        </div>
       </div>
  
-    <div class="control">
-      <button class="unesi" @click="saveKlijent">Spremi</button>
-    </div>
+      <button class="btnunesi" @click="saveKlijent">Spremi</button>
   </div>
 </template>
  
